@@ -1,0 +1,8 @@
+.license-conveyor{width:100%;min-height:420px;display:flex;flex-direction:column;justify-content:center;color:#202923}
+.license-conveyor>header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;font:700 11px "Courier New",monospace;text-transform:uppercase}.license-conveyor>header b{padding:8px 12px;background:#202923;color:#fff}
+.conveyor-track{position:relative;display:grid;grid-template-columns:repeat(3,1fr) 132px;gap:14px;align-items:center;padding:42px 22px;background:repeating-linear-gradient(90deg,#d9dfda 0,#d9dfda 18px,#edf0ed 18px,#edf0ed 36px);border:2px solid #202923}
+.conveyor-track:after{content:"";position:absolute;left:20px;right:20px;bottom:18px;height:5px;background:#202923}
+.package-box{z-index:1;min-height:142px;padding:18px;background:#fff;border:2px solid #202923;box-shadow:5px 5px 0 #202923}.package-box small,.package-box span{display:block;font:700 9px "Courier New",monospace}.package-box strong{display:block;margin:22px 0;text-transform:uppercase;font-size:15px}.package-box.block{border-color:#d64a66}.package-box.clear{border-color:#35a37a}
+.certificate-stamp{z-index:1;display:grid;place-items:center;aspect-ratio:1;background:#35a37a;border:3px double #202923;transform:rotate(3deg)}.certificate-stamp small,.certificate-stamp span{font:800 9px "Courier New",monospace}.certificate-stamp b{font-size:20px}
+.license-conveyor>footer{display:flex;align-items:center;gap:12px;margin-top:18px;text-transform:uppercase;font:700 9px "Courier New",monospace}.license-conveyor>footer i{flex:1;height:1px;background:#202923}
+@media(max-width:700px){.conveyor-track{grid-template-columns:1fr 1fr}.certificate-stamp{max-width:120px}.package-box{min-height:120px}.license-conveyor>header{gap:12px}}

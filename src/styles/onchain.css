@@ -1,0 +1,318 @@
+
+.chain-state-screen {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  padding: 32px;
+  background: var(--bg, #f4f6f8);
+  color: var(--ink, #101820);
+  text-align: center;
+}
+.chain-state-screen b { font-size: 22px; }
+.chain-state-screen span { max-width: 560px; color: var(--muted, #5e6870); line-height: 1.55; }
+.chain-state-screen button, .chain-state-screen a {
+  min-height: 40px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 750;
+  text-decoration: none;
+}
+.chain-spinner {
+  width: 26px;
+  height: 26px;
+  border: 3px solid color-mix(in srgb, currentColor 20%, transparent);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: chain-spin .8s linear infinite;
+}
+@keyframes chain-spin { to { transform: rotate(360deg); } }
+
+.chain-dock-trigger { display: none !important; }
+.chain-dock-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--chain-scrim, #02080c) 76%, transparent);
+  backdrop-filter: blur(10px);
+}
+.chain-dock {
+  --chain-accent: #0b718d;
+  --chain-panel: #f7f9fa;
+  --chain-ink: #0b1820;
+  --chain-muted: #61717a;
+  --chain-line: #cbd4d9;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template:
+    "head" auto
+    "status" auto
+    "nav" auto
+    "body" minmax(0, 1fr) / minmax(0, 1fr);
+  overflow: hidden;
+  background: var(--chain-panel);
+  color: var(--chain-ink);
+  box-shadow: 0 28px 90px rgba(0,0,0,.34);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+.chain-dock > header {
+  grid-area: head;
+  min-height: 68px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--chain-line);
+}
+.chain-dock > header span,
+.chain-dock label,
+.chain-record-summary > span {
+  display: block;
+  color: var(--chain-muted);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.chain-dock > header b {
+  display: block;
+  margin-top: 5px;
+  font-size: 18px;
+  line-height: 1.15;
+}
+.chain-dock > header button {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  border: 1px solid var(--chain-line);
+  background: transparent;
+  color: inherit;
+  font-size: 17px;
+}
+.chain-dock-status {
+  grid-area: status;
+  min-height: 48px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--chain-line);
+  font-size: 11px;
+}
+.chain-dock-status span { font-weight: 800; }
+.chain-dock-status span i {
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--chain-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--chain-accent) 18%, transparent);
+}
+.chain-dock-status a {
+  overflow: hidden;
+  color: var(--chain-accent);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chain-dock-status button {
+  border: 0;
+  background: transparent;
+  color: var(--chain-accent);
+  font: 800 11px/1 inherit;
+}
+.chain-dock > nav {
+  grid-area: nav;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-bottom: 1px solid var(--chain-line);
+}
+.chain-dock > nav button {
+  min-width: 0;
+  min-height: 48px;
+  padding: 8px;
+  border: 0;
+  border-right: 1px solid var(--chain-line);
+  background: transparent;
+  color: var(--chain-muted);
+  font: 800 9px/1.15 inherit;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.chain-dock > nav button:last-child { border-right: 0; }
+.chain-dock > nav button.active {
+  background: var(--chain-ink);
+  color: var(--chain-panel);
+}
+.chain-dock-body {
+  grid-area: body;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 20px;
+}
+.chain-dock label { margin-top: 14px; }
+.chain-dock input,
+.chain-dock textarea,
+.chain-dock select {
+  width: 100%;
+  margin-top: 7px;
+  padding: 11px 12px;
+  border: 1px solid var(--chain-line);
+  border-radius: 0;
+  outline: none;
+  background: color-mix(in srgb, var(--chain-panel) 88%, white);
+  color: var(--chain-ink);
+  font: 500 13px/1.45 inherit;
+  letter-spacing: 0;
+}
+.chain-dock input:focus,
+.chain-dock textarea:focus,
+.chain-dock select:focus {
+  border-color: var(--chain-accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--chain-accent) 16%, transparent);
+}
+.chain-dock textarea { min-height: 104px; resize: vertical; }
+.chain-record-summary {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--chain-accent);
+  background: color-mix(in srgb, var(--chain-accent) 9%, var(--chain-panel));
+}
+.chain-record-summary b { display: block; margin: 6px 0; font-size: 15px; }
+.chain-record-summary p { margin: 0; color: var(--chain-muted); font-size: 12px; line-height: 1.55; }
+.chain-record-summary small { display: block; margin-top: 8px; color: var(--chain-muted); }
+.chain-fields { display: grid; gap: 10px; margin-top: 16px; }
+.chain-fields > p { margin: 0; color: var(--chain-muted); font-size: 13px; line-height: 1.55; }
+.chain-fields > button {
+  min-height: 46px;
+  padding: 0 16px;
+  border: 1px solid var(--chain-ink);
+  border-radius: 0;
+  background: var(--chain-ink);
+  color: var(--chain-panel);
+  font: 800 12px/1 inherit;
+}
+.chain-fields > button:disabled { cursor: not-allowed; opacity: .45; }
+.chain-filing-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.chain-filing-actions button { min-height: 42px; padding: 8px 12px; border: 1px solid var(--chain-ink); background: transparent; color: var(--chain-ink); font: 800 11px/1.25 inherit; }
+.chain-filing-actions button:disabled { cursor: not-allowed; opacity: .45; }
+.chain-lifecycle > button {
+  background: transparent;
+  color: var(--chain-ink);
+}
+.chain-action-error {
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid #c73d3d;
+  background: #fff0f0;
+  color: #8d2424;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.chain-last-tx {
+  min-height: 42px;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--chain-accent);
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* Product-specific onchain workspace: license-patch */
+
+.chain-dock--license-patch {
+  --chain-accent: #a7f227;
+  --chain-panel: #171914;
+  --chain-ink: #efffda;
+  --chain-muted: #94a87b;
+  --chain-line: #3b4630;
+}
+.chain-dock-scrim--license-patch { --chain-scrim: #11120f; }
+
+.chain-dock-scrim--license-patch { place-items: stretch; padding: 22px; background: #070806; }
+.chain-dock--license-patch {
+  width: 100%;
+  height: 100%;
+  grid-template:
+    "head head" auto
+    "nav status" auto
+    "nav body" minmax(0, 1fr) / 186px minmax(0, 1fr);
+  border: 1px solid var(--chain-line);
+  font-family: "Courier New", monospace;
+}
+.chain-dock--license-patch > nav { grid-template-columns: 1fr; align-content: start; border: 0; border-right: 1px solid var(--chain-line); }
+.chain-dock--license-patch > nav button { min-height: 52px; padding: 0 16px; border: 0; border-bottom: 1px solid var(--chain-line); text-align: left; }
+.chain-dock--license-patch > nav button::before { content: "./"; color: var(--chain-accent); }
+.chain-dock--license-patch > nav button.active { background: #262c1e; color: var(--chain-accent); }
+.chain-dock--license-patch .chain-dock-body { max-width: 900px; padding: 28px 40px 80px; }
+.chain-dock--license-patch input, .chain-dock--license-patch textarea, .chain-dock--license-patch select { background: #0c0e0a; }
+.chain-dock--license-patch .chain-fields > button { background: var(--chain-accent); color: #11140c; border-color: var(--chain-accent); }
+
+
+@media (max-width: 720px) {
+  .chain-dock-scrim { padding: 0; place-items: stretch; backdrop-filter: none; }
+  .chain-dock,
+  [class*="chain-dock--"] {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    grid-template:
+      "head" auto
+      "status" auto
+      "nav" auto
+      "body" minmax(0, 1fr) / minmax(0, 1fr);
+  }
+  .chain-dock > header { min-height: 64px; padding: 12px 14px; border-right: 0; }
+  .chain-dock > header b { max-width: 250px; overflow: hidden; font-size: 16px; text-overflow: ellipsis; white-space: nowrap; }
+  .chain-dock-status { min-height: 44px; padding: 0 14px; }
+  .chain-dock > nav {
+    display: flex;
+    overflow-x: auto;
+    border: 0;
+    border-bottom: 1px solid var(--chain-line);
+    border-right: 0;
+    border-left: 0;
+    background: transparent;
+  }
+  .chain-dock > nav button {
+    min-width: 118px;
+    min-height: 46px;
+    padding: 8px 12px;
+    border: 0;
+    border-right: 1px solid var(--chain-line);
+    border-bottom: 0;
+    text-align: center;
+  }
+  .chain-dock > nav button::before { content: none; }
+  .chain-dock-body { width: 100%; max-width: none; padding: 18px 16px 84px; }
+  .chain-fields { grid-template-columns: 1fr; }
+  .chain-fields > label,
+  .chain-fields > label:has(textarea),
+  .chain-fields > p,
+  .chain-fields > button { grid-column: 1; }
+  .chain-filing-actions { grid-template-columns: 1fr; }
+  .chain-dock input, .chain-dock textarea, .chain-dock select { font-size: 16px; }
+}

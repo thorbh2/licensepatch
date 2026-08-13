@@ -1,0 +1,12 @@
+{
+  "project": "56-licensepatch",
+  "className": "LicensePatch",
+  "file": "licensepatch.py",
+  "create": "open_release",
+  "resolve": "review_release_with_genlayer",
+  "archive": "archive_release",
+  "count": "get_release_count",
+  "get": "get_release",
+  "childA": "add_dependency",
+  "childB": "add_license_obligation"
+}

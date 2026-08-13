@@ -1,0 +1,15 @@
+{
+  "project": "56-licensepatch",
+  "name": "LicensePatch",
+  "network": "testnetBradbury",
+  "chainId": 4221,
+  "rpc": "https://rpc-bradbury.genlayer.com",
+  "explorer": "https://explorer-bradbury.genlayer.com",
+  "contractAddress": "0x570f56a6666f5743Fd612e59787dDFceCF82E444",
+  "deployTxHash": "0xaba97258b4a5b4be766b2b77009b9bbbe2ccaf8fc7b6a5928a2437a594e8b36b",
+  "contractExplorer": "https://explorer-bradbury.genlayer.com/address/0x570f56a6666f5743Fd612e59787dDFceCF82E444",
+  "deployer": "0x9A62e5Aa759e806a0965D4c7A5D10a1dae21AaEc",
+  "deployedAt": "2026-08-11T03:52:47.719Z",
+  "statusName": 5,
+  "smoke": {}
+}
