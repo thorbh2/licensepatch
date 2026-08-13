@@ -175,7 +175,7 @@ const BRADBURY_HEX = '0x107d';
 const RPC = 'https://rpc-bradbury.genlayer.com';
 const EXPLORER_TX = 'https://explorer-bradbury.genlayer.com/tx/';
 const CACHE_KEY = `genlayer:snapshot:${contractState.address.toLowerCase()}`;
-const CACHE_TTL_MS = 30_000;
+const CACHE_TTL_MS = 300_000;
 let serverSnapshotCache: { savedAt: number; snapshot: OnchainSnapshot } | null = null;
 const OnchainContext = createContext<OnchainContextValue | null>(null);
 

@@ -40,7 +40,7 @@ App.getInitialProps = async (context: AppContext) => {
   const props = await NextApp.getInitialProps(context);
   if (!context.ctx.req) return props;
   try {
-    const initialOnchainSnapshot = await loadOnchainSnapshot(true);
+    const initialOnchainSnapshot = await loadOnchainSnapshot(false);
     return { ...props, pageProps: { ...props.pageProps, initialOnchainSnapshot } };
   } catch { return props; }
 };
