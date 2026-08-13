@@ -8,6 +8,7 @@ LicensePatch is a GenLayer Bradbury application for software release license cer
 
 | Layer | Implementation |
 | --- | --- |
+| Live app | [licensepatch-review.vercel.app](https://licensepatch-review.vercel.app) |
 | Network | GenLayer Bradbury, chain `4221` |
 | Contract | [`0x570f56a6666f5743Fd612e59787dDFceCF82E444`](https://explorer-bradbury.genlayer.com/address/0x570f56a6666f5743Fd612e59787dDFceCF82E444) |
 | Reasoning | validator-local `gl.nondet.web.get` with render fallback, `gl.nondet.exec_prompt`, custom consensus |
